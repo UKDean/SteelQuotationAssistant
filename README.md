@@ -106,15 +106,23 @@ Prices live in `services/price_service.py` as a `PRICE_LIST` dictionary keyed by
 
 ## Testing
 
-There is no automated test suite yet. Manual verification: create a quotation with two or more items and confirm that line totals, subtotal, VAT, and grand total match the price list, and that the quotation number increments on the next run.
+The suite covers the price lookup, quotation totals, VAT, validity dates, text output, and SQLite persistence. Database tests run against a temporary database, so they never touch `data/steel.db`.
+
+    python -m pip install pytest
+    python -m pytest -v
+
+30 tests, all passing.
 
 ---
+
+## Known Issues
+
+Quotation numbers can come from two different sources: `database.get_next_quotation_number()` reads from the database, while `Quotation.get_next_number()` counts exported text files. `app.py` uses the database, but the file-based fallback still runs when a `Quotation` is created without an explicit number, which can produce a duplicate number. Consolidating on the database as the single source of truth is pending.
 
 ## Roadmap
 
 Planned, not yet implemented:
 
-- Automated tests for pricing, totals, and numbering
 - Externalize the price list and VAT rate into a configuration file
 - Customer and project lookup instead of creating a new record per quotation
 - PDF export
