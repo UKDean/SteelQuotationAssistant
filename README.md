@@ -1,5 +1,7 @@
 # Steel Quotation Assistant
 
+[![Tests](https://github.com/UKDean/SteelQuotationAssistant/actions/workflows/tests.yml/badge.svg)](https://github.com/UKDean/SteelQuotationAssistant/actions/workflows/tests.yml)
+
 A command-line quotation generator for reinforcing steel sales. It builds multi-item quotations, prices each line by grade and size, applies VAT, assigns sequential quotation numbers, stores everything in SQLite, and exports a formatted text quotation.
 
 Status: early-stage, functional. Command-line interface only. No external dependencies.
