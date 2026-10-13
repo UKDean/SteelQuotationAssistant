@@ -134,4 +134,4 @@ Planned, not yet implemented:
 
 ## License
 
-No license file is included yet. All rights reserved unless a license is added.
+Released under the [MIT License](LICENSE).
